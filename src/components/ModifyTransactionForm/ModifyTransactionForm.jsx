@@ -29,8 +29,6 @@ registerLocale("en-US", enUS);
 const ModifyTransactionFormNew = ({ closeModal }) => {
   const transactionForUpdate = useSelector(selectTransactionForUpdate);
 
-  const { id, transactionDate, type, comment, amount } = transactionForUpdate;
-
   const isOnIncomeTab = transactionForUpdate.type === "INCOME" ? true : false;
 
   const screenCondition = useMediaQuery({ query: "(min-width: 768px)" });
