@@ -26,7 +26,7 @@ import { FiCalendar } from "react-icons/fi";
 // Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
 registerLocale("en-US", enUS);
 
-const ModifyTransactionFormNew = ({ closeModal }) => {
+const ModifyTransactionForm = ({ closeModal }) => {
   const transactionForUpdate = useSelector(selectTransactionForUpdate);
 
   const isOnIncomeTab = transactionForUpdate.type === "INCOME" ? true : false;
@@ -164,8 +164,8 @@ const ModifyTransactionFormNew = ({ closeModal }) => {
   );
 };
 
-ModifyTransactionFormNew.propTypes = {
+ModifyTransactionForm.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
 
-export default ModifyTransactionFormNew;
+export default ModifyTransactionForm;

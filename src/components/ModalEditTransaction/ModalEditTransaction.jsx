@@ -9,10 +9,6 @@ const ModalEditTransaction = ({ closeModal }) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // setTimeout(() => {
-    //   modalRef.current.classList.add(styles.isOpen);
-    // }, 0);
-
     const addCloseEvent = (event) => {
       event.key === "Escape" && closeModal();
     };

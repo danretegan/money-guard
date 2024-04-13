@@ -12,7 +12,7 @@ import { selectAllTransactions } from "../../redux/transactions/selectors";
 import { fetchAllTransactions } from "../../redux/transactions/operations";
 
 import ModalDeleteTransaction from "../../components/ModalDeleteTransaction/ModalDeleteTransaction";
-import ModalAddTransactionNew from "../../components/ModalAddTransaction/ModalAddTransaction";
+import ModalAddTransaction from "../../components/ModalAddTransaction/ModalAddTransaction";
 import ModalEditTransaction from "../../components/ModalEditTransaction/ModalEditTransaction";
 
 import LoadingScreenSharedLayoutPages from "../../components/common/LoadingScreenSharedLayoutPages/LoadingScreenSharedLayoutPages";
@@ -73,7 +73,7 @@ const HomePage = () => {
 
       <>
         {isAddModalOpen && (
-          <ModalAddTransactionNew closeModal={() => setIsAddModalOpen(false)} />
+          <ModalAddTransaction closeModal={() => setIsAddModalOpen(false)} />
         )}
 
         {isDeleteModalOpen && (

@@ -24,7 +24,7 @@ import PropTypes from "prop-types";
 // Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
 registerLocale("en-US", enUS);
 
-const AddTransactionFormNew = ({ closeModal }) => {
+const AddTransactionForm = ({ closeModal }) => {
   const [isOnIncomeTab, setIsOnIncomeTab] = useState(false); // Setăm inițial pe false pentru tab-ul "Expense"
   useEffect(() => {}, [isOnIncomeTab]);
 
@@ -169,8 +169,8 @@ const AddTransactionFormNew = ({ closeModal }) => {
   );
 };
 
-AddTransactionFormNew.propTypes = {
+AddTransactionForm.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
 
-export default AddTransactionFormNew;
+export default AddTransactionForm;
