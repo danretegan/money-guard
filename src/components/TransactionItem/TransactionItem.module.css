@@ -1,0 +1,138 @@
+.TransactionItem {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #ffffff1a;
+  box-shadow: 0px 4px 60px 0px #00000040;
+  /* backdrop-filter: blur(50px); */
+  color: white;
+  font-size: 16px;
+
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 12px 20px 12px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.deleteButton {
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  border-radius: 18px;
+  border: none;
+  color: #ffffff;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+
+.deleteButton:hover {
+  background: linear-gradient(95deg, #7000ff -15%, #9e40ba 95%, #ffc727 150%);
+  transform: scale(1.2);
+  transition: all 0.5s ease 0s;
+  font-weight: 600;
+}
+
+.editButton {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5.27px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+
+.editText {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s ease 0s;
+}
+
+.editIcon {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255, 255, 255, 0.6);
+  stroke: rgba(255, 255, 255, 0.6);
+  color: transparent;
+  transition: all 0.5s ease 0s;
+}
+
+.editButton:hover {
+  transform: scale(1.2);
+  transition: all 0.5s ease 0s;
+}
+
+.editButton:hover .editIcon {
+  stroke: #7000ff;
+  transition: all 0.5s ease 0s;
+}
+
+.editButton:hover .editText {
+  color: #7000ff;
+  font-weight: 600;
+  transition: all 0.5s ease 0s;
+}
+
+.fixData {
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.dynamicData {
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.sixthRow {
+  border: 0;
+}
+
+.incomeText {
+  color: #ffc727;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.expenseText {
+  color: #ff868d;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.incomeBorder {
+  border-left: 5px solid #ffb627;
+  transition: all 0.5s ease 0s;
+}
+
+.incomeBorder:hover {
+  box-shadow: -5px 0 8px 0 #ffc727;
+  transition: all 0.5s ease 0s;
+}
+
+.expenseBorder {
+  border-left: 5px solid #ff868d;
+  transition: all 0.5s ease 0s;
+}
+
+.expenseBorder:hover {
+  transition: all 0.5s ease 0s;
+  box-shadow: -5px 0px 8px 0px #ff868d;
+}

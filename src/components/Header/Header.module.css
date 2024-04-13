@@ -1,0 +1,123 @@
+.header {
+  background: linear-gradient(270.02deg, #2e1746 3.2%, #2e225f 99.98%);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25),
+    0px -3px 2px 0px rgba(0, 0, 0, 0.1) inset;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 500;
+}
+
+.header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header div .userMenu {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.userMenu .username {
+  /* width: 80px; */
+  text-align: right;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.userMenu .delimiter {
+  display: none;
+}
+
+.userMenu .logOutBtn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff99;
+  transition: all 0.35s ease-in-out;
+}
+
+.userMenu .logOutBtn:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: all 0.35s ease-in-out;
+}
+
+.userMenu .logOutBtn:active {
+  transform: scale(1.2);
+  transition: all 0.35s ease-in-out;
+}
+
+.userMenu .logOutBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    width: 100%;
+    padding: 16px 32px;
+    position: relative;
+    z-index: 100;
+  }
+
+  .header div .userMenu {
+    gap: 12px;
+  }
+
+  .userMenu .username {
+    width: 200px;
+  }
+
+  .userMenu .delimiter {
+    display: block;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 1px;
+  }
+
+  .userMenu .logOutBtn {
+    gap: 8px;
+  }
+
+  .userMenu .logOutBtn::after {
+    content: 'Exit';
+    color: #ffffff99;
+    font-size: 16px;
+    line-height: 24px;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.userMenu .logOutBtn:hover::after {
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: all 0.35s ease-in-out;
+}
+
+.userMenu .logOutBtn:active::after {
+  transform: scale(1.15);
+  transition: all 0.35s ease-in-out;
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+    width: 100%;
+    padding: 16px;
+  }
+}

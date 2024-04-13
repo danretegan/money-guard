@@ -1,0 +1,61 @@
+.section {
+  min-height: calc(100dvh - 61px);
+  padding-top: 75px;
+  padding-bottom: 32px;
+  overflow: hidden;
+
+  /* todo: problema aici cu valoarea bg */
+  background: linear-gradient(219.62deg, #6d54eb 28.31%, #652392 66.76%);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sharedSectionElements .navAndBalanceContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    min-height: calc(100vh - 159px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .sharedSectionElements {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .sharedSectionElements .navAndBalanceContainer {
+    gap: 28px;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    padding: 0;
+  }
+
+  .sharedSectionElements {
+    display: inline-flex;
+    flex-direction: column;
+    width: 480px;
+    position: relative;
+    justify-content: flex-start;
+  }
+
+  .sharedSectionElements::after {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 1px;
+    min-height: 3000px;
+    position: absolute;
+    top: -40px;
+    right: 0px;
+  }
+}

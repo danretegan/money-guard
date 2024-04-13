@@ -1,0 +1,77 @@
+.bgImg {
+  /* background-image: url('../../../images/backgrounds/register&login-bg-m.jpg'); */
+  background-image: url('../../../images//backgrounds/register-bg-t.jpg');
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+
+  /* overflow: hidden; */
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(50px);
+  /* backdrop-filter: blur(10px); */
+}
+
+.contentImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contentImg img {
+  width: 150px;
+  height: 150px;
+}
+
+.contentText {
+  color: rgba(224, 224, 224, 1);
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-align: center;
+  min-width: 200px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@media screen and (min-width: 768px) {
+  .contentImg img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contentText {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bgImg {
+    background-image: url('../../../images//backgrounds/register-bg-d.jpg');
+  }
+
+  .contentImg img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .contentText {
+    font-size: 30px;
+  }
+}

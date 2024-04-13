@@ -1,0 +1,7 @@
+.TransactionList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 32px;
+  width: 100%;
+}

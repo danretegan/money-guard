@@ -1,0 +1,96 @@
+@import "../node_modules/modern-normalize/modern-normalize.css"; /* bring in modern-normalize.css styles */
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+input:-moz-autofill,
+textarea:-moz-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+input:-ms-autofill,
+textarea:-ms-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 704px;
+    /* padding-left: 32px; */
+    /* padding-right: 32px; */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1248px;
+    /* padding-left: 16px; */
+    /* padding-right: 16px; */
+    display: flex;
+    /* padding-top: 40px; */
+  }
+
+  section .container {
+    padding-top: 40px;
+  }
+}

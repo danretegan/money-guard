@@ -1,0 +1,58 @@
+.TransactionTable {
+  /* background-color: aquamarine; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableHead {
+  color: #fbfbfb;
+  background: #523b7e99;
+  box-shadow: 0px 4px 60px 0px #00000040;
+  backdrop-filter: blur(50px);
+}
+
+.tableHeadRow {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.dateColumn {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 100px;
+  text-align: left;
+}
+
+.deleteColumn {
+  padding-right: 20px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.typeColumn {
+  width: 100px;
+}
+
+.categoryColumn {
+  width: 170px;
+}
+
+.commentColumn {
+  min-width: 150px;
+  text-align: left;
+}
+
+.sumColumn {
+  min-width: 80px;
+}

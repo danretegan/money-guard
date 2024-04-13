@@ -1,0 +1,97 @@
+.editIcon {
+  width: 14px;
+  height: 14px;
+  transition: all 0.5s ease 0s;
+}
+
+.dataRow {
+  text-align: center;
+  color: #fbfbfb;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.incomeText {
+  color: #ffc727;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.expenseText {
+  color: #ff868d;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.editButton {
+  color: transparent; /* Change the color as desired */
+  stroke: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+
+.editButton:hover {
+  transform: scale(1.2);
+  transition: all 0.5s ease 0s;
+}
+
+.editButton:hover .editIcon {
+  stroke: gray;
+  color: white;
+  transition: all 0.5s ease 0s;
+}
+
+.deleteButton {
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  border-radius: 18px;
+  border: none;
+  color: #ffffff;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+
+.deleteButton:hover {
+  background: linear-gradient(95deg, #7000ff -15%, #9e40ba 95%, #ffc727 150%);
+  transform: scale(1.1);
+  transition: all 0.5s ease 0s;
+}
+
+.TransactionDateColumn {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 20px;
+}
+
+.TransactionCommentColumn {
+  text-align: left;
+}
+
+.TransactionDeleteColumn {
+  padding-right: 10px;
+}
+
+.TransactionEditColumn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 56px;
+  margin-right: 10px;
+}
