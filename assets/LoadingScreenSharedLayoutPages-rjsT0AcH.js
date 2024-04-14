@@ -1,1 +1,0 @@
-import{j as a,D as e}from"./index-BXjmh62D.js";const n="_loadingScreenSharedLayoutPages_17owe_1",t={loadingScreenSharedLayoutPages:n},o=()=>a.jsx(a.Fragment,{children:a.jsx("div",{className:t.loadingScreenSharedLayoutPages,children:a.jsx("img",{src:e,alt:"logo",className:"animate__animated  animate__rotateOut animate__infinite animate__slow"})})});export{o as L};
