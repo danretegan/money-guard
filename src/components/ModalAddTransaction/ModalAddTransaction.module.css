@@ -3,7 +3,7 @@
   top: 0px;
   left: 0;
 
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
 
   z-index: 100;
@@ -52,7 +52,7 @@
     backdrop-filter: blur(3px);
 
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;

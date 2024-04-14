@@ -23,7 +23,7 @@
     margin-top: 0;
   }
   .tableContainer {
-    height: calc(-220px + 100vh);
+    height: calc(-220px + 100dvh);
   }
 }
 
