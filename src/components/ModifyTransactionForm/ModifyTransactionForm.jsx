@@ -43,15 +43,18 @@ const ModifyTransactionForm = ({ closeModal }) => {
     transactionDate: transactionForUpdate.transactionDate,
     comment: transactionForUpdate.comment,
   };
-  console.log("initialValues:", initialValues);
 
   const validationSchema = isOnIncomeTab
     ? Yup.object({
-        amount: Yup.string().required("Required*"),
+        amount: Yup.string()
+          .matches(/^\d+(\.\d{1,2})?$/, "Invalid amount") // Permite un număr întreg sau cu maxim 2 zecimale
+          .required("Required*"),
         comment: Yup.string().required("Required*"),
       })
     : Yup.object({
-        amount: Yup.string().required("Required*"),
+        amount: Yup.string()
+          .matches(/^\d+(\.\d{1,2})?$/, "Invalid amount") // Permite un număr întreg sau cu maxim 2 zecimale
+          .required("Required*"),
         comment: Yup.string().required("Required*"),
         category: Yup.string().required("Required*"),
       });
@@ -124,7 +127,7 @@ const ModifyTransactionForm = ({ closeModal }) => {
               )}
 
               <div className={`${styles.inputField} ${styles.amount}`}>
-                <Field type="number" name="amount" min="1" placeholder="0.00" />
+                <Field type="text" name="amount" min="1" placeholder="0.00" />
                 <ErrorMessage name="amount" component="p" />
               </div>
 
