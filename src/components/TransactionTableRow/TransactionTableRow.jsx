@@ -29,7 +29,14 @@ const TransactionTableRow = ({
   const handleEditClick = () => {
     openEditModal();
     dispatch(
-      setTrasactionForUpdate({ id: transaction.id, type: transaction.type })
+      setTrasactionForUpdate({
+        id: transaction.id,
+        type: transaction.type,
+        categoryId: transaction.categoryId,
+        amount: transaction.amount,
+        transactionDate: transaction.transactionDate,
+        comment: transaction.comment,
+      })
     );
   };
 

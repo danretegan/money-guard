@@ -38,10 +38,12 @@ const ModifyTransactionForm = ({ closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   const initialValues = {
-    amount: "",
-    comment: "",
+    categoryId: transactionForUpdate.categoryId,
+    amount: transactionForUpdate.amount,
+    transactionDate: transactionForUpdate.transactionDate,
+    comment: transactionForUpdate.comment,
   };
-  console.log(initialValues);
+  console.log("initialValues:", initialValues);
 
   const validationSchema = isOnIncomeTab
     ? Yup.object({
