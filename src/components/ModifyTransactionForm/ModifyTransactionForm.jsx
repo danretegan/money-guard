@@ -68,7 +68,9 @@ const ModifyTransactionForm = ({ closeModal }) => {
         transactionData: {
           transactionDate: startDate,
           type: isOnIncomeTab ? "INCOME" : "EXPENSE",
-          categoryId: getTransactionId(values.category || "Income"),
+          categoryId: getTransactionId(
+            values.transactionCategories || "Income"
+          ),
           comment: values.comment,
           amount: isOnIncomeTab ? values.amount : 0 - values.amount,
         },
@@ -123,10 +125,18 @@ const ModifyTransactionForm = ({ closeModal }) => {
             <div className={styles.inputWrapper}>
               {!isOnIncomeTab && (
                 <div className={`${styles.inputField} ${styles.category}`}>
-                  <Field as="select" name="category" autoFocus required>
+                  <Field
+                    as="select"
+                    name="category"
+                    autoFocus
+                    required
+                    defaultValue={transactionForUpdate.categoryId}
+                  >
                     <option value="">Select your category</option>
-                    {transactionCategories.slice(0, -1).map((item) => (
-                      <option key={item.id}>{item.name}</option>
+                    {transactionCategories.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
                     ))}
                   </Field>
                   <ErrorMessage name="category" component="p" />
