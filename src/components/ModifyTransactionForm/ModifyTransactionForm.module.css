@@ -1,25 +1,3 @@
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill::first-line {
-  transition: background-color 5000s ease-in-out 0s;
-  background-color: transparent !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-input:-moz-autofill,
-textarea:-moz-autofill {
-  transition: background-color 5000s ease-in-out 0s;
-  background-color: transparent !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-input:-ms-autofill,
-textarea:-ms-autofill {
-  transition: background-color 5000s ease-in-out 0s;
-  background-color: transparent !important;
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
 .modalContent {
   position: relative;
 }
@@ -247,4 +225,26 @@ form .buttonsWrapper {
   .inputField.comment {
     width: 100%;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+input:-moz-autofill,
+textarea:-moz-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+input:-ms-autofill,
+textarea:-ms-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
