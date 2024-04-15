@@ -22,12 +22,14 @@ import { selectTransactionForUpdate } from "../../redux/transactions/selectors";
 import { modifyTransaction } from "../../redux/transactions/operations";
 import { getUserInfo } from "../../redux/auth/operations";
 import { FiCalendar } from "react-icons/fi";
+import { Controller, useForm } from "react-hook-form";
 
 // Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
 registerLocale("en-US", enUS);
 
 const ModifyTransactionForm = ({ closeModal }) => {
   const transactionForUpdate = useSelector(selectTransactionForUpdate);
+  const { control, setValue } = useForm(); // Declararea controlului și funcției setValue
 
   const isOnIncomeTab = transactionForUpdate.type === "INCOME" ? true : false;
 
@@ -35,8 +37,9 @@ const ModifyTransactionForm = ({ closeModal }) => {
 
   const dispatch = useDispatch();
 
-  const [startDate, setStartDate] = useState(new Date());
-
+  const [startDate, setStartDate] = useState(
+    new Date(transactionForUpdate.transactionDate)
+  );
   const initialValues = {
     categoryId: transactionForUpdate.categoryId,
     amount: transactionForUpdate.amount,
@@ -80,6 +83,13 @@ const ModifyTransactionForm = ({ closeModal }) => {
         setStatus({ success: false, error: error });
         setSubmitting(false);
       });
+  };
+
+  const handleDateChange = (dateChange) => {
+    setValue("transactionDate", dateChange, {
+      shouldDirty: true,
+    });
+    setStartDate(dateChange);
   };
 
   return (
@@ -129,12 +139,20 @@ const ModifyTransactionForm = ({ closeModal }) => {
               </div>
 
               <div className={`${styles.inputField} ${styles.date}`}>
-                <ReactDatePicker
-                  dateFormat="dd.MM.yyyy"
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                  locale="en-US" // Setăm localizarea la engleză
-                  calendarStartDay={1} // Setăm începutul săptămânii la luni
+                <Controller
+                  name="transactionDate"
+                  control={control}
+                  defaultValue={startDate}
+                  render={() => (
+                    <ReactDatePicker
+                      selected={startDate}
+                      onChange={handleDateChange}
+                      dateFormat="dd.MM.yyyy"
+                      maxDate={new Date()}
+                      locale="en-US" // Setăm localizarea la engleză
+                      calendarStartDay={1} // Setăm începutul săptămânii la luni
+                    />
+                  )}
                 />
                 <FiCalendar className={styles.icon} />
               </div>
