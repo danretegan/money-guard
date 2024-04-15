@@ -12,27 +12,27 @@ const StatisticsDashboard = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
-  const monthRef = useRef();
+  const mounthRef = useRef();
   const yearRef = useRef();
 
   useEffect(() => {
     dispatch(
       fetchTransactionsSummary({
-        month: monthRef.current.value,
+        mounth: mounthRef.current.value,
         year: yearRef.current.value,
       })
     );
   }, [currentMonth, currentYear, dispatch]);
 
   useEffect(() => {
-    monthRef.current.value = currentMonth;
+    mounthRef.current.value = currentMonth;
   }, [currentMonth]);
 
   return (
     <div className={styles.dropdownsWrapper}>
       <select
-        onChange={() => setCurrentMonth(parseInt(monthRef.current.value))}
-        ref={monthRef}
+        onChange={() => setCurrentMonth(parseInt(mounthRef.current.value))}
+        ref={mounthRef}
       >
         {Months_OPTIONS.map((item) => (
           <option

@@ -74,13 +74,13 @@ const getTransactionCategory = (transactionId) => {
 
 const formatData = (unixData) => {
   const year = new Date(unixData).getFullYear();
-  const month = new Date(unixData).getMonth() + 1;
+  const mounth = new Date(unixData).getMonth() + 1;
   const day = new Date(unixData).getDate();
 
-  const doubleDigitsFormatmonth = String(month).padStart(2, 0);
+  const doubleDigitsFormatMounth = String(mounth).padStart(2, 0);
   const doubleDigitsFormatDay = String(day).padStart(2, 0);
 
-  return `${doubleDigitsFormatDay}.${doubleDigitsFormatmonth}.${year}`;
+  return `${doubleDigitsFormatDay}.${doubleDigitsFormatMounth}.${year}`;
 };
 
 const Months_OPTIONS = [

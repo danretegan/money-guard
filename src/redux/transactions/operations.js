@@ -94,10 +94,10 @@ const modifyTransaction = createAsyncThunk(
 // *Get transactions summary //
 const fetchTransactionsSummary = createAsyncThunk(
   "transactions/fetchTransactionsSummary",
-  async ({ month, year }, thunkAPI) => {
+  async ({ mounth, year }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/transactions-summary?month=${month}&year=${year}`
+        `/transactions-summary?month=${mounth}&year=${year}`
       );
 
       return response.data;
