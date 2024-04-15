@@ -1,3 +1,25 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill::first-line {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+input:-moz-autofill,
+textarea:-moz-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+input:-ms-autofill,
+textarea:-ms-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
 .modalContent {
   position: relative;
 }
@@ -10,8 +32,8 @@
 }
 
 /* Ascunde săgețile de incrementare/decrementare din câmpul număr */
-.inputField input[type='number']::-webkit-inner-spin-button,
-.inputField input[type='number']::-webkit-outer-spin-button {
+.inputField input[type="number"]::-webkit-inner-spin-button,
+.inputField input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
