@@ -41,7 +41,9 @@ const LoginForm = () => {
       })
     )
       .unwrap()
-      .then(() => {})
+      .then(() => {
+        // console.log('chestia din then: => login');
+      })
       .catch((error) => {
         setStatus({ success: false, error: error });
         setSubmitting(false);
