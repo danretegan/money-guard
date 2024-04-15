@@ -46,7 +46,6 @@ const ModifyTransactionForm = ({ closeModal }) => {
     transactionDate: transactionForUpdate.transactionDate,
     comment: transactionForUpdate.comment,
   };
-  console.log("initialValues:", initialValues);
 
   const validationSchema = isOnIncomeTab
     ? Yup.object({
@@ -144,7 +143,13 @@ const ModifyTransactionForm = ({ closeModal }) => {
               )}
 
               <div className={`${styles.inputField} ${styles.amount}`}>
-                <Field type="number" name="amount" min="1" placeholder="0.00" />
+                <Field
+                  type="number"
+                  name="amount"
+                  min="0.01"
+                  step="0.01"
+                  placeholder="0.00"
+                />
                 <ErrorMessage name="amount" component="p" />
               </div>
 
