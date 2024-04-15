@@ -22,24 +22,21 @@ import { selectTransactionForUpdate } from "../../redux/transactions/selectors";
 import { modifyTransaction } from "../../redux/transactions/operations";
 import { getUserInfo } from "../../redux/auth/operations";
 import { FiCalendar } from "react-icons/fi";
-import { Controller, useForm } from "react-hook-form";
 
 // Înregistram localizarea pentru utilizarea în componenta ReactDatePicker
 registerLocale("en-US", enUS);
 
 const ModifyTransactionForm = ({ closeModal }) => {
   const transactionForUpdate = useSelector(selectTransactionForUpdate);
-  const { control, setValue } = useForm(); // Declararea controlului și funcției setValue
 
-  const isOnIncomeTab = transactionForUpdate.type === "INCOME";
+  const isOnIncomeTab = transactionForUpdate.type === "INCOME" ? true : false;
 
   const screenCondition = useMediaQuery({ query: "(min-width: 768px)" });
 
-  const [startDate, setStartDate] = useState(
-    new Date(transactionForUpdate.transactionDate)
-  );
-
   const dispatch = useDispatch();
+
+  const [startDate, setStartDate] = useState(new Date());
+
   const initialValues = {
     categoryId: transactionForUpdate.categoryId,
     amount: transactionForUpdate.amount,
@@ -47,13 +44,20 @@ const ModifyTransactionForm = ({ closeModal }) => {
     comment: transactionForUpdate.comment,
   };
 
-  const validationSchema = Yup.object({
-    amount: Yup.string()
-      .matches(/^\d+(\.\d{1,2})?$/, "Invalid amount")
-      .required("Required*"),
-    comment: Yup.string().required("Required*"),
-    category: isOnIncomeTab ? Yup.string() : Yup.string().required("Required*"),
-  });
+  const validationSchema = isOnIncomeTab
+    ? Yup.object({
+        amount: Yup.string()
+          .matches(/^\d+(\.\d{1,2})?$/, "Invalid amount") // Permite un număr întreg sau cu maxim 2 zecimale
+          .required("Required*"),
+        comment: Yup.string().required("Required*"),
+      })
+    : Yup.object({
+        amount: Yup.string()
+          .matches(/^\d+(\.\d{1,2})?$/, "Invalid amount") // Permite un număr întreg sau cu maxim 2 zecimale
+          .required("Required*"),
+        comment: Yup.string().required("Required*"),
+        category: Yup.string().required("Required*"),
+      });
 
   const handleSubmit = (values, { setSubmitting, setStatus }) => {
     setSubmitting(true);
@@ -66,7 +70,7 @@ const ModifyTransactionForm = ({ closeModal }) => {
           type: isOnIncomeTab ? "INCOME" : "EXPENSE",
           categoryId: getTransactionId(values.category || "Income"),
           comment: values.comment,
-          amount: isOnIncomeTab ? values.amount : -values.amount,
+          amount: isOnIncomeTab ? values.amount : 0 - values.amount,
         },
       })
     )
@@ -79,13 +83,6 @@ const ModifyTransactionForm = ({ closeModal }) => {
         setStatus({ success: false, error: error });
         setSubmitting(false);
       });
-  };
-
-  const handleDateChange = (dateChange) => {
-    setValue("transactionDate", dateChange, {
-      shouldDirty: true,
-    });
-    setStartDate(dateChange);
   };
 
   return (
@@ -107,11 +104,11 @@ const ModifyTransactionForm = ({ closeModal }) => {
             <h2 className={styles.formTitle}>Edit transaction</h2>
 
             <div className={styles.switcheWrapper}>
-              <span className={isOnIncomeTab ? styles.income : null}>
+              <span className={`${isOnIncomeTab ? styles.income : null}`}>
                 Income
               </span>
               <span className={styles.delimeter}>/</span>
-              <span className={!isOnIncomeTab ? styles.expense : null}>
+              <span className={`${!isOnIncomeTab ? styles.expense : null}`}>
                 Expense
               </span>
             </div>
@@ -135,20 +132,12 @@ const ModifyTransactionForm = ({ closeModal }) => {
               </div>
 
               <div className={`${styles.inputField} ${styles.date}`}>
-                <Controller
-                  name="transactionDate"
-                  control={control}
-                  defaultValue={startDate}
-                  render={() => (
-                    <ReactDatePicker
-                      selected={startDate}
-                      onChange={handleDateChange}
-                      dateFormat="dd.MM.yyyy"
-                      maxDate={new Date()}
-                      locale="en-US" // Setăm localizarea la engleză
-                      calendarStartDay={1} // Setăm începutul săptămânii la luni
-                    />
-                  )}
+                <ReactDatePicker
+                  dateFormat="dd.MM.yyyy"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  locale="en-US" // Setăm localizarea la engleză
+                  calendarStartDay={1} // Setăm începutul săptămânii la luni
                 />
                 <FiCalendar className={styles.icon} />
               </div>
@@ -161,15 +150,15 @@ const ModifyTransactionForm = ({ closeModal }) => {
 
             <div className={styles.buttonsWrapper}>
               <FormButton
-                type="submit"
-                text="save"
-                variant="multiColorButtton"
+                type={"submit"}
+                text={"save"}
+                variant={"multiColorButtton"}
                 isDisabled={isSubmitting}
               />
               <FormButton
-                type="button"
-                text="cancel"
-                variant="whiteButtton"
+                type={"button"}
+                text={"cancel"}
+                variant={"whiteButtton"}
                 handlerFunction={() => closeModal()}
               />
             </div>
