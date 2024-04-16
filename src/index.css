@@ -69,25 +69,18 @@ textarea:-ms-autofill {
 .container {
   width: 100%;
   margin: 0 auto;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
 }
 
 @media screen and (min-width: 768px) {
   .container {
     width: 704px;
-    /* padding-left: 32px; */
-    /* padding-right: 32px; */
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 1248px;
-    /* padding-left: 16px; */
-    /* padding-right: 16px; */
     display: flex;
-    /* padding-top: 40px; */
   }
 
   section .container {
