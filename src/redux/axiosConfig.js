@@ -5,10 +5,15 @@ const setAxiosBaseURL = () => {
 };
 
 const setAxiosHeader = (tokenReceived) => {
-  const savedDataLocal = JSON.parse(localStorage.getItem("persist:auth"));
+  const savedDataLocalString = localStorage.getItem("persist:auth");
+
+  // Check if savedDataLocalString is not null before parsing
+  const savedDataLocal = savedDataLocalString
+    ? JSON.parse(savedDataLocalString)
+    : null;
 
   const savedToken =
-    savedDataLocal?.token === "null"
+    savedDataLocal?.token === "null" || !savedDataLocal?.token
       ? null
       : savedDataLocal?.token.slice(1, -1);
 
